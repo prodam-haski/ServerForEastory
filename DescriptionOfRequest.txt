@@ -1,0 +1,6 @@
+Запрос на сервер                                                 Ответ сервера
+/cr/sessionname - создать сессию                                 successful% в случае создания 
+/ad/sessionname%username% - подключиться к сессии для username   username to session's creator
+/ls/ - запрос списка текущих сессий                              session1%session2...
+/lt/sessionname%int%int%...int% - id вопросов для сессии         рассылка пакета всем useraм из userlist даннной session
+/re/sessionname%username+result% - результат usera               user's result to session's creator 

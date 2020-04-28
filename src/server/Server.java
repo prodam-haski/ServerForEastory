@@ -92,14 +92,14 @@ public class Server {
             ) {
                 if (serverName.equals(s.getName().trim())) {
                     s.addClient(new ServerClient(userName, packet.getAddress(), packet.getPort(), UniqueID.getID()));
-                    
-                    bufferString = "successful%";
-                    packet.setData(bufferString.trim().getBytes());
-                    socket.send(packet);
 
                     Socket tempSocket = new Socket(s.getCreator().getAddress(),s.getCreator().getPort());
                     OutputStream outputStream = tempSocket.getOutputStream();
                     outputStream.write(userName.getBytes());
+
+                    bufferString = "successful%";
+                    packet.setData(bufferString.trim().getBytes());
+                    socket.send(packet);
                     break;
                 }
             }
@@ -125,6 +125,9 @@ public class Server {
                         outputStream.write(str.getBytes());
 
                     }
+                    bufferString = "successful%";
+                    packet.setData(bufferString.trim().getBytes());
+                    socket.send(packet);
                     break;
                 }
             }
