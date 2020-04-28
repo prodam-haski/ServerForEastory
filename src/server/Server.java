@@ -31,7 +31,6 @@ public class Server {
             public void run() {
                 running = true;
                 System.out.println("Server run on port" + port);
-                manage();
                 receive();
             }
         }, "serverRun");
@@ -60,20 +59,8 @@ public class Server {
             }
         });
         receiveThread.start();
-
     }
 
-    private void manage() {
-        manageTread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (running) {
-
-                }
-            }
-        });
-        manageTread.start();
-    }
 
     private void decode(DatagramPacket packet) throws IOException {
         String str = new String(packet.getData());
